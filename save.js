@@ -11,5 +11,5 @@ export function saveAddress(addresses, address){
         address.id = nextId;
         addresses.push(address)
     }
-    return address
+    return addresses;
 }
