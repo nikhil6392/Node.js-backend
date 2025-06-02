@@ -2,6 +2,15 @@
 
 A **lightweight and minimalist** Address Book web application built **entirely with Node.js built-in modules** — no external libraries or dependencies required!
 
+### Home view
+
+![Home](./public/home.png)
+
+### Address Form View
+
+![Create new record](./public/record.png)
+
+
 ---
 
 ## Why Choose This App?
