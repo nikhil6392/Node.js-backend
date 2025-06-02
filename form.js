@@ -17,6 +17,7 @@ export function getForm(addresses, id){
         <head>
             <title>Address Book </title>
             <meta charset = "utf-8">
+            <link rel="stylesheet" href="/form.css" />
         </head>
         <body>
             <form action = "/save" method = "POST">

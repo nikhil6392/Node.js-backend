@@ -48,7 +48,18 @@ createServer((req, res) => {
             }
         })
 
-    }
+    } else if(req.url === '/form.css') {
+    readFile('public/form.css', 'utf-8', (err, data) => {
+        if(err){
+            res.statusCode = 404;
+            res.end()
+        }else {
+            res.writeHead(200, {'content-type': 'text/css'});
+            res.end(data)
+        }
+    })
+}
+
     else{
         send(res, getList(data.addresses))
     }
