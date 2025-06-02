@@ -3,6 +3,10 @@ import data from './data.js';
 import { getList } from './list.js';
 import { deleteAddress } from './delete.js';
 import { getForm } from './form.js';
+import { parse } from 'querystring';
+import { saveAddress } from './save.js';
+import { readFile } from 'fs';
+
 
 createServer((req, res) => {
     const parts = req.url.split('/');
@@ -13,7 +17,29 @@ createServer((req, res) => {
         send(res, getForm())
     } else if (parts.includes('edit')){
         send(res, getForm(data.addresses, parts[2]));
-    } else{
+    } else if (parts.includes('save') && req.method === 'POST'){
+        let body = ''
+        req.on('readable', () => {
+            const data = req.read();
+            body += data !== null ? data : '';
+        });
+        req.on('end', () => {
+            const address = parse(body);
+            data.addresses = saveAddress(data.addresses, address);
+            redirect(res, '/')
+        })
+    } else if(req.url === '/style.css') {
+        readFile('public/style.css', 'utf-8', (err, data) => {
+            if(err){
+                res.statusCode = 404;
+                res.end()
+            }else {
+                res.end(data)
+            }
+        })
+
+    }
+    else{
         send(res, getList(data.addresses))
     }
 }).listen(8080, () => {
@@ -26,7 +52,7 @@ function send(res, responseBody){
 }
 
 function redirect(res, to){
-    res.writeHead(302, {location: to, 'content-type': 'text/plain'});
-    res.end(`302 Redirecting to ${to} `)
+    res.writeHead(302, {location: '/', 'content-type': 'text/plain'});
+    res.end(`302 Redirecting to / `)
 }
 
