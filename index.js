@@ -1,4 +1,4 @@
-import {createServer, request} from 'http'
+import {createServer} from 'http'
 import data from './data.js';
 import { getList } from './list.js';
 import { deleteAddress } from './delete.js';
@@ -7,15 +7,7 @@ import { parse } from 'querystring';
 import { saveAddress } from './save.js';
 import { readFile } from 'fs';
 
-const options = new URL('http://localhost:8080/')
 
-request(options, (res) => {
-    let body = ''
-    res.on('data', (chunk) => { body += chunk});
-    res.on('end', () => {
-        console.log(body)
-    })
-}).end()
 
 
 createServer((req, res) => {
