@@ -16,14 +16,14 @@ export function getForm(addresses, id){
     <html>
         <head>
             <title>Address Book </title>
-            <meta charset = "utf-8>
+            <meta charset = "utf-8">
         </head>
         <body>
-            <form action = "/save" method = "POST>
-                <input type = "hidden" id ="id" name = "id" value = "${address.id} />
+            <form action = "/save" method = "POST">
+                <input type = "hidden" id ="id" name = "id" value = "${address.id}" />
                 <div>
                     <label for = "firstName"> First Name </label>
-                    <input type = "text" id = "firstName" name = "firstName: value = "${address.firstName} />
+                    <input type = "text" id = "firstName" name = "firstName"  value = "${address.firstName}" />
                 </div>
                 <div>
                     <label for = "lastName"> Last Name </label>
@@ -43,7 +43,7 @@ export function getForm(addresses, id){
                     <input type = "text" id = "country" name = "country" value = "${address.country}" />
                 </div>
                 <div>
-                    <button type = "submit">save</button>
+                    <button type = "submit" value = "Save">save</button>
                 </div>
             </form>
         </body>
