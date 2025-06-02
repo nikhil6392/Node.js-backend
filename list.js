@@ -3,6 +3,7 @@ export function getList(addresses){
         <html>
             <head>
                 <title>Address Book</title>
+                <link rel="stylesheet" href=" style.css" />
             </head>
             <body>
                 <h1>Address Book</h1>

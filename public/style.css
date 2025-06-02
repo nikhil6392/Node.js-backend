@@ -1,0 +1,17 @@
+table {
+    border-spacing: 0;
+}
+
+td {
+    width: 50px;
+}
+
+tr:first-child th {
+    font-weight: bold;
+    text-align: left;
+    background-color: aqua;
+}
+
+tr:nth-child(2n) td {
+    background-color: beige;
+}   
